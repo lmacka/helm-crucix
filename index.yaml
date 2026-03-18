@@ -1,0 +1,28 @@
+apiVersion: v1
+entries:
+  crucix:
+  - apiVersion: v2
+    appVersion: 2.0.0
+    created: "2026-03-18T05:05:05.81731771Z"
+    description: Self-hosted OSINT intelligence dashboard — 27 sources, real-time
+      HUD
+    digest: 7b3a3b843e66c288fdb96995f8495872d1082d86a225f4c7ad956e390ba62773
+    home: https://github.com/calesthio/Crucix
+    keywords:
+    - osint
+    - intelligence
+    - dashboard
+    - security
+    kubeVersion: '>=1.21.0-0'
+    maintainers:
+    - name: lmacka
+      url: https://github.com/lmacka
+    name: crucix
+    sources:
+    - https://github.com/lmacka/Crucix
+    - https://github.com/lmacka/helm-crucix
+    type: application
+    urls:
+    - https://github.com/lmacka/helm-crucix/releases/download/crucix-0.1.0/crucix-0.1.0.tgz
+    version: 0.1.0
+generated: "2026-03-18T05:05:05.817331646Z"
