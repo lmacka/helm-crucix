@@ -4,6 +4,62 @@ entries:
   - annotations:
       artifacthub.io/category: security
       artifacthub.io/changes: |
+        - kind: changed
+          description: Use upstream image (ghcr.io/calesthio/crucix)
+        - kind: added
+          description: README with badges, full API key signup links, complete values reference
+        - kind: added
+          description: ArtifactHub repo verification file and LICENSE
+        - kind: added
+          description: values.schema.json for ArtifactHub values spec
+        - kind: changed
+          description: Default to latest tag with Always pull policy
+      artifacthub.io/containsSecurityUpdates: "false"
+      artifacthub.io/images: |
+        - name: crucix
+          image: ghcr.io/calesthio/crucix:latest
+      artifacthub.io/license: MIT
+      artifacthub.io/links: |
+        - name: Upstream Project
+          url: https://github.com/calesthio/Crucix
+        - name: Docker Image
+          url: https://ghcr.io/calesthio/crucix
+        - name: Live Demo
+          url: https://www.crucix.live/
+        - name: support
+          url: https://github.com/lmacka/helm-crucix/issues
+      artifacthub.io/operator: "false"
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 2.0.0
+    created: "2026-03-18T23:11:46.499934168Z"
+    description: Self-hosted OSINT intelligence dashboard — 27 sources, real-time
+      HUD
+    digest: d389b4ff5326cd04836076464993a1efa502591b1808253c6947da7d8c1c3788
+    home: https://github.com/calesthio/Crucix
+    icon: https://raw.githubusercontent.com/calesthio/Crucix/master/docs/dashboard.png
+    keywords:
+    - osint
+    - intelligence
+    - dashboard
+    - security
+    - monitoring
+    - geopolitics
+    kubeVersion: '>=1.21.0-0'
+    maintainers:
+    - name: lmacka
+      url: https://github.com/lmacka
+    name: crucix
+    sources:
+    - https://github.com/lmacka/helm-crucix
+    - https://github.com/calesthio/Crucix
+    type: application
+    urls:
+    - https://github.com/lmacka/helm-crucix/releases/download/crucix-0.2.0/crucix-0.2.0.tgz
+    version: 0.2.0
+  - annotations:
+      artifacthub.io/category: security
+      artifacthub.io/changes: |
         - kind: added
           description: Initial chart release
       artifacthub.io/containsSecurityUpdates: "false"
@@ -69,4 +125,4 @@ entries:
     urls:
     - https://github.com/lmacka/helm-crucix/releases/download/crucix-0.1.0/crucix-0.1.0.tgz
     version: 0.1.0
-generated: "2026-03-18T06:11:20.820068329Z"
+generated: "2026-03-18T23:11:46.499951591Z"
