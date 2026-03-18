@@ -10,14 +10,16 @@ maintainers:
     url: https://github.com/lmacka
 home: https://github.com/calesthio/Crucix
 sources:
-  - https://github.com/lmacka/Crucix
   - https://github.com/lmacka/helm-crucix
+  - https://github.com/calesthio/Crucix
+icon: https://raw.githubusercontent.com/calesthio/Crucix/master/docs/dashboard.png
 keywords:
   - osint
   - intelligence
   - dashboard
   - security
   - monitoring
+  - geopolitics
 annotations:
   artifacthub.io/category: security
   artifacthub.io/license: MIT
@@ -29,6 +31,8 @@ annotations:
       url: https://github.com/calesthio/Crucix
     - name: Docker Image
       url: https://ghcr.io/calesthio/crucix
+    - name: Live Demo
+      url: https://www.crucix.live/
     - name: support
       url: https://github.com/lmacka/helm-crucix/issues
   artifacthub.io/images: |
@@ -38,6 +42,10 @@ annotations:
     - kind: changed
       description: Use upstream image (ghcr.io/calesthio/crucix)
     - kind: added
-      description: Add README and values schema for ArtifactHub
+      description: README with badges, full API key signup links, complete values reference
+    - kind: added
+      description: ArtifactHub repo verification file and LICENSE
+    - kind: added
+      description: values.schema.json for ArtifactHub values spec
     - kind: changed
       description: Default to latest tag with Always pull policy
