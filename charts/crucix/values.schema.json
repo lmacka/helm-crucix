@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "replicaCount": {
+      "type": "integer",
+      "default": 1,
+      "description": "Number of replicas"
+    },
+    "image": {
+      "type": "object",
+      "properties": {
+        "repository": {
+          "type": "string",
+          "default": "ghcr.io/lmacka/crucix",
+          "description": "Container image repository"
+        },
+        "pullPolicy": {
+          "type": "string",
+          "default": "IfNotPresent",
+          "enum": ["Always", "IfNotPresent", "Never"],
+          "description": "Image pull policy"
+        },
+        "tag": {
+          "type": "string",
+          "default": "",
+          "description": "Image tag (defaults to appVersion)"
+        }
+      }
+    },
+    "imagePullSecrets": {
+      "type": "array",
+      "default": [],
+      "description": "Image pull secrets"
+    },
+    "nameOverride": {
+      "type": "string",
+      "default": "",
+      "description": "Override chart name"
+    },
+    "fullnameOverride": {
+      "type": "string",
+      "default": "",
+      "description": "Override full release name"
+    },
+    "serviceAccount": {
+      "type": "object",
+      "properties": {
+        "create": {
+          "type": "boolean",
+          "default": true,
+          "description": "Create a service account"
+        },
+        "annotations": {
+          "type": "object",
+          "default": {},
+          "description": "Service account annotations"
+        },
+        "name": {
+          "type": "string",
+          "default": "",
+          "description": "Service account name"
+        },
+        "automount": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automount service account token"
+        }
+      }
+    },
+    "podAnnotations": {
+      "type": "object",
+      "default": {},
+      "description": "Pod annotations"
+    },
+    "podLabels": {
+      "type": "object",
+      "default": {},
+      "description": "Additional pod labels"
+    },
+    "podSecurityContext": {
+      "type": "object",
+      "properties": {
+        "runAsNonRoot": {
+          "type": "boolean",
+          "default": true
+        },
+        "runAsUser": {
+          "type": "integer",
+          "default": 1000
+        },
+        "fsGroup": {
+          "type": "integer",
+          "default": 1000
+        }
+      },
+      "description": "Pod security context"
+    },
+    "securityContext": {
+      "type": "object",
+      "description": "Container security context"
+    },
+    "service": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "default": "ClusterIP",
+          "enum": ["ClusterIP", "NodePort", "LoadBalancer"],
+          "description": "Service type"
+        },
+        "port": {
+          "type": "integer",
+          "default": 80,
+          "description": "Service port"
+        },
+        "targetPort": {
+          "type": "integer",
+          "default": 3117,
+          "description": "Container port"
+        }
+      }
+    },
+    "ingress": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable ingress"
+        },
+        "className": {
+          "type": "string",
+          "default": "",
+          "description": "Ingress class name"
+        },
+        "annotations": {
+          "type": "object",
+          "default": {},
+          "description": "Ingress annotations"
+        },
+        "hosts": {
+          "type": "array",
+          "default": [],
+          "description": "Ingress hosts"
+        },
+        "tls": {
+          "type": "array",
+          "default": [],
+          "description": "Ingress TLS configuration"
+        }
+      }
+    },
+    "resources": {
+      "type": "object",
+      "properties": {
+        "requests": {
+          "type": "object",
+          "properties": {
+            "cpu": {
+              "type": "string",
+              "default": "100m"
+            },
+            "memory": {
+              "type": "string",
+              "default": "256Mi"
+            }
+          }
+        },
+        "limits": {
+          "type": "object",
+          "properties": {
+            "memory": {
+              "type": "string",
+              "default": "1Gi"
+            }
+          }
+        }
+      },
+      "description": "Container resource requests and limits"
+    },
+    "persistence": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable persistent storage for alert memory"
+        },
+        "storageClass": {
+          "type": "string",
+          "default": "",
+          "description": "Storage class name"
+        },
+        "accessMode": {
+          "type": "string",
+          "default": "ReadWriteOnce",
+          "enum": ["ReadWriteOnce", "ReadWriteMany", "ReadOnlyMany"],
+          "description": "PVC access mode"
+        },
+        "size": {
+          "type": "string",
+          "default": "1Gi",
+          "description": "PVC size"
+        },
+        "mountPath": {
+          "type": "string",
+          "default": "/app/runs",
+          "description": "Mount path for persistent data"
+        }
+      }
+    },
+    "extraEnv": {
+      "type": "array",
+      "default": [],
+      "description": "Additional environment variables (OSINT API keys, config)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": ["name"]
+      }
+    },
+    "extraEnvFrom": {
+      "type": "array",
+      "default": [],
+      "description": "Additional environment variable sources (e.g. secretRef)",
+      "items": {
+        "type": "object"
+      }
+    },
+    "livenessProbe": {
+      "type": "object",
+      "description": "Liveness probe configuration"
+    },
+    "readinessProbe": {
+      "type": "object",
+      "description": "Readiness probe configuration"
+    },
+    "nodeSelector": {
+      "type": "object",
+      "default": {},
+      "description": "Node selector"
+    },
+    "tolerations": {
+      "type": "array",
+      "default": [],
+      "description": "Tolerations"
+    },
+    "affinity": {
+      "type": "object",
+      "default": {},
+      "description": "Affinity rules"
+    }
+  }
+}
