@@ -12,7 +12,7 @@
       "properties": {
         "repository": {
           "type": "string",
-          "default": "ghcr.io/lmacka/crucix",
+          "default": "ghcr.io/calesthio/crucix",
           "description": "Container image repository"
         },
         "pullPolicy": {

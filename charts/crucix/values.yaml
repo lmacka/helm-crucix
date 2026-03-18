@@ -5,10 +5,9 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/lmacka/crucix
-  pullPolicy: IfNotPresent
-  # tag defaults to appVersion when omitted
-  tag: ""
+  repository: ghcr.io/calesthio/crucix
+  pullPolicy: Always
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
