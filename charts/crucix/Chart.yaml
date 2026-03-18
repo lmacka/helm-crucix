@@ -1,7 +1,7 @@
 apiVersion: v2
 name: crucix
 description: Self-hosted OSINT intelligence dashboard — 27 sources, real-time HUD
-version: 0.1.0
+version: 0.1.1
 appVersion: "2.0.0"
 kubeVersion: ">=1.21.0-0"
 type: application
@@ -17,3 +17,23 @@ keywords:
   - intelligence
   - dashboard
   - security
+  - monitoring
+annotations:
+  artifacthub.io/category: security
+  artifacthub.io/license: MIT
+  artifacthub.io/operator: "false"
+  artifacthub.io/prerelease: "false"
+  artifacthub.io/containsSecurityUpdates: "false"
+  artifacthub.io/links: |
+    - name: Upstream Project
+      url: https://github.com/calesthio/Crucix
+    - name: Docker Image
+      url: https://ghcr.io/lmacka/crucix
+    - name: support
+      url: https://github.com/lmacka/helm-crucix/issues
+  artifacthub.io/images: |
+    - name: crucix
+      image: ghcr.io/lmacka/crucix:2.0.0
+  artifacthub.io/changes: |
+    - kind: added
+      description: Initial chart release
